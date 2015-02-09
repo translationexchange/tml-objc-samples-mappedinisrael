@@ -558,7 +558,7 @@
 				GCC_PREFIX_HEADER = "MappedInIsrael/MappedInIsrael-Prefix.pch";
 				INFOPLIST_FILE = "MappedInIsrael/MappedInIsrael-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "281002d9-c27b-4f30-927b-52d8a2be0ef7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -580,7 +580,7 @@
 				GCC_PREFIX_HEADER = "MappedInIsrael/MappedInIsrael-Prefix.pch";
 				INFOPLIST_FILE = "MappedInIsrael/MappedInIsrael-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "281002d9-c27b-4f30-927b-52d8a2be0ef7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

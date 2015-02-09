@@ -29,6 +29,13 @@
 
 - (void) localize {
     TmlLocalizeView(self.whosHiring);
+    
+    int count = 0;
+    for (int i = 0; i < [MIIData getAllFormatedCategories].count; i++) {
+        count += [self.tableData[i] count];
+    }
+
+    self.searchController.searchBar.placeholder = TmlLocalizedStringWithTokens(@"Search {count || Organization}", (@{@"count": [NSNumber numberWithInt:count]}));
 }
 
 - (void)viewDidLoad
@@ -162,7 +169,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return ((NSArray *)self.searchData[section]).count ? [MIIData getAllFormatedCategories][section] : nil;
+    return ((NSArray *)self.searchData[section]).count ? TmlLocalizedString([MIIData getAllFormatedCategories][section]) : nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
