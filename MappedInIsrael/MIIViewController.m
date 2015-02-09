@@ -12,6 +12,9 @@
 #import "MIIClusterView.h"
 #import "MIITableViewController.h"
 #import "MIICompanyViewController.h"
+#import "Tml.h"
+#import "UIViewController+Tml.h"
+
 
 #define DEFAULT_LATITUDE 32.11303727704297
 #define DEFAULT_LONGITUDE 34.7941900883194
@@ -46,6 +49,11 @@
 @end
 
 @implementation MIIViewController
+
+- (void) localize {
+    self.navigationItem.title = TmlLocalizedString(@"Mapped In Israel");
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -84,7 +92,18 @@
 {
     [super viewDidLoad];
     
+    [self localize];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(localize)
+                                                 name:TmlLanguageChangedNotification
+                                               object:self.view.window];
+
     self.screenName = @"MIIViewController";
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose
+                                                                                          target:self
+                                                                                          action:@selector(showSettings:)];
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
                                                                              style:UIBarButtonItemStylePlain
@@ -111,6 +130,11 @@
     [self.locationManager requestWhenInUseAuthorization];
     
     [self showCurrentLocation:self];
+}
+
+- (void)showSettings:(id)sender
+{
+    [self performSegueWithIdentifier:@"showSettings:" sender:sender];
 }
 
 - (void)showSearch:(id)sender

@@ -11,6 +11,8 @@
 #import "MIICompanyViewController.h"
 #import "MIICompany.h"
 #import "MIIViewController.h"
+#import "Tml.h"
+#import "UIViewController+Tml.h"
 
 @interface MIITableViewController () <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UITableViewDelegate>
 
@@ -25,9 +27,18 @@
 
 @implementation MIITableViewController
 
+- (void) localize {
+    TmlLocalizeView(self.whosHiring);
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(localize)
+                                                 name:TmlLanguageChangedNotification
+                                               object:self.view.window];
 
     // searchController
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
@@ -84,7 +95,8 @@
     for (int i = 0; i < [MIIData getAllFormatedCategories].count; i++) {
         count += [self.tableData[i] count];
     }
-    self.searchController.searchBar.placeholder = [NSString stringWithFormat:@"Search %d Organizations", count];
+
+    self.searchController.searchBar.placeholder = TmlLocalizedStringWithTokens(@"Search {count || Organization}", (@{@"count": [NSNumber numberWithInt:count]}));
 
     self.searchData = [self.tableData copy];
     [self.tableView reloadData];

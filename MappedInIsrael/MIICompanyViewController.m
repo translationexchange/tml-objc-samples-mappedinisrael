@@ -13,8 +13,22 @@
 #import "MIIData.h"
 #import "MIIJob.h"
 #import "UITextView+FitText.h"
+#import "Tml.h"
+#import "UIViewController+Tml.h"
 
 @implementation MIICompanyViewController
+
+- (void) localize {
+    NSDictionary *category = (NSDictionary *)self.company.companyCategory;
+    self.navigationItem.title = TmlLocalizedString([[MIIData getAllFormatedCategories] objectAtIndex:[[MIIData getAllCategories] indexOfObject:[category valueForKey:@"categoryName"]]]);
+    
+    self.descriptionTextView.text = TmlLocalizedString(self.company.desc);
+    //    self.descriptionTextView.text = self.company.description;
+    self.textViewHeightConstraint.constant = [self.descriptionTextView fitTextHeight];
+    TmlLocalizeViewWithLabel(self.descriptionTextView, self.company.desc);
+    
+    TmlLocalizeViewWithLabelAndTokens(self.hiringLabel, @"{company} is currently hiring:", @{@"company": self.company.companyName});
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -30,6 +44,12 @@
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(localize)
+                                                 name:TmlLanguageChangedNotification
+                                               object:self.view.window];
+
+    
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:nil
@@ -43,10 +63,14 @@
     NSDictionary *category = (NSDictionary *)self.company.companyCategory;
     self.navigationItem.title = [MIIData getAllFormatedCategories][[[MIIData getAllCategories] indexOfObject:[category valueForKey:@"categoryName"]]];
     self.hiringLabel.text = [NSString stringWithFormat:@"%@ is currently hiring:", self.company.companyName];
+    TmlLocalizeViewWithLabelAndTokens(self.hiringLabel, @"{company} is currently hiring:", @{@"company": self.company.companyName});
+    
     self.nameLabel.text = self.company.companyName;
     
-    self.descriptionTextView.text = self.company.desc;
+    self.descriptionTextView.text = TmlLocalizedString(self.company.desc);
+//    self.descriptionTextView.text = self.company.desc;
     self.textViewHeightConstraint.constant = [self.descriptionTextView fitTextHeight];
+    TmlLocalizeViewWithLabel(self.descriptionTextView, self.company.desc);
     
     self.tableViewHeightConstraint.constant = self.tableView.rowHeight*[self.company.jobs count];
     [self.contactButton setTitle:self.company.contactEmail forState:UIControlStateNormal];

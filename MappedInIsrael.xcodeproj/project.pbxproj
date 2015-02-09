@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1651EEB19DDEA28CE77E9B72 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA18E5EC57BC35D2569DB14 /* libPods.a */; };
+		4CDC3E681A889B450057AB9F /* MIISettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC3E671A889B450057AB9F /* MIISettingsViewController.m */; };
 		B200F1EA1839112F00C7E957 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = B200F1E91839112F00C7E957 /* NSString+HTML.m */; };
 		B2094056183AD98700A6BA92 /* MIIJob.m in Sources */ = {isa = PBXBuildFile; fileRef = B2094055183AD98700A6BA92 /* MIIJob.m */; };
 		B223499C183B6677002962E9 /* companies.data in Resources */ = {isa = PBXBuildFile; fileRef = B223499B183B6677002962E9 /* companies.data */; };
 		B22C811D1831651A006E192E /* MIIData.m in Sources */ = {isa = PBXBuildFile; fileRef = B22C811C1831651A006E192E /* MIIData.m */; };
-		B232AC691831421700114E52 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B232AC681831421700114E52 /* Crashlytics.framework */; };
 		B232AC6B18314AAC00114E52 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B232AC6A18314AAC00114E52 /* AdSupport.framework */; };
 		B274D0321832D88A00FEF3E6 /* MIITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B274D0311832D88A00FEF3E6 /* MIITableViewController.m */; };
 		B274D0481833789700FEF3E6 /* MIIPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B274D0471833789700FEF3E6 /* MIIPointAnnotation.m */; };
@@ -48,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4CDC3E661A889B450057AB9F /* MIISettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIISettingsViewController.h; sourceTree = "<group>"; };
+		4CDC3E671A889B450057AB9F /* MIISettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIISettingsViewController.m; sourceTree = "<group>"; };
 		52ABA3487B34DEC084756E71 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7FA18E5EC57BC35D2569DB14 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B200F1E81839112F00C7E957 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
@@ -58,7 +60,6 @@
 		B22C811B1831651A006E192E /* MIIData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIIData.h; sourceTree = "<group>"; };
 		B22C811C1831651A006E192E /* MIIData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIIData.m; sourceTree = "<group>"; };
 		B22C811E18316891006E192E /* MIIDataDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIIDataDelegate.h; sourceTree = "<group>"; };
-		B232AC681831421700114E52 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = MappedInIsrael/Crashlytics.framework; sourceTree = "<group>"; };
 		B232AC6A18314AAC00114E52 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		B274D0301832D88A00FEF3E6 /* MIITableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIITableViewController.h; sourceTree = "<group>"; };
 		B274D0311832D88A00FEF3E6 /* MIITableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIITableViewController.m; sourceTree = "<group>"; };
@@ -127,7 +128,6 @@
 				B2CD5D04182252F700340E43 /* MapKit.framework in Frameworks */,
 				B2CD5D02182252EE00340E43 /* CoreLocation.framework in Frameworks */,
 				B2D87A2E1A5EB7070050D81E /* Fabric.framework in Frameworks */,
-				B232AC691831421700114E52 /* Crashlytics.framework in Frameworks */,
 				B2CD5CBF182238B900340E43 /* CoreGraphics.framework in Frameworks */,
 				B2CD5CC1182238B900340E43 /* UIKit.framework in Frameworks */,
 				B2790EFF1A6284B500024C19 /* HelloDebug.framework in Frameworks */,
@@ -176,6 +176,8 @@
 		B296E6291830FB78005C09E9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4CDC3E661A889B450057AB9F /* MIISettingsViewController.h */,
+				4CDC3E671A889B450057AB9F /* MIISettingsViewController.m */,
 				B2CD5CD1182238B900340E43 /* MIIViewController.h */,
 				B2CD5CD2182238B900340E43 /* MIIViewController.m */,
 				B274D0301832D88A00FEF3E6 /* MIITableViewController.h */,
@@ -213,7 +215,6 @@
 				B2D87A2D1A5EB7070050D81E /* Fabric.framework */,
 				B2B978BF1838AE2D00DE2CF2 /* MobileCoreServices.framework */,
 				B2B978BD1838AE2100DE2CF2 /* CFNetwork.framework */,
-				B232AC681831421700114E52 /* Crashlytics.framework */,
 				B232AC6A18314AAC00114E52 /* AdSupport.framework */,
 				B2A387AC182FEDAF00989B4D /* libz.dylib */,
 				B2A387AA182FEDA000989B4D /* SystemConfiguration.framework */,
@@ -421,6 +422,7 @@
 				B200F1EA1839112F00C7E957 /* NSString+HTML.m in Sources */,
 				B22C811D1831651A006E192E /* MIIData.m in Sources */,
 				B2DFDA8518324E000080BA78 /* MIIClusterView.m in Sources */,
+				4CDC3E681A889B450057AB9F /* MIISettingsViewController.m in Sources */,
 				B2CD5D001822488200340E43 /* MIIManager.m in Sources */,
 				B2BA4ECF1836A35E0027CDDE /* UIColor+MBCategory.m in Sources */,
 				B2BA4EFD1837E2B40027CDDE /* MIIJobViewController.m in Sources */,

@@ -10,6 +10,7 @@
 #import "GAI.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import "Tml.h"
 
 @implementation MIIAppDelegate
 
@@ -19,8 +20,11 @@
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-45602986-1"];
     
     // Crashlytics
-    [Fabric with:@[CrashlyticsKit]];
+//    [Fabric with:@[CrashlyticsKit]];
 
+    // Tml
+    [Tml sharedInstanceWithToken:@"e462d405ce8a59d62a0c42bbc32bd817a2c3eb1aadee3091254bee0e4544dd8d"];
+    
     // Override point for customization after application launch.
     return YES;
 }
